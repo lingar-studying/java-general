@@ -1,0 +1,25 @@
+God's Willing : 
+
+Explanations about File object  - see it with the package and run it : .
+
+https://docs.oracle.com/javase/7/docs/api/java/io/File.html
+
+I've tried to study it from the doc, and the truth it's pretty good. 
+after I'll finish it, I will pass on another tutorial for check if I missed something. 
+
+But actually the description there almost didn't get. 
+
+
+Here in the package there are many classes for working with the File.
+
+https://docs.oracle.com/javase/7/docs/api/java/io/package-summary.html
+
+Q- T(term) - epoch : 
+https://docs.oracle.com/javase/7/docs/api/java/io/File.html#lastModified()
+https://www.google.co.il/search?newwindow=1&ei=ixDkXJmEH-qBi-gP64CnGA&q=epoch+&oq=epoch+&gs_l=psy-ab.3..0i67l4j0l6.127103.127103..128369...0.0..0.136.136.0j1......0....2j1..gws-wiz.......0i71.e-h_BqVfbb8
+
+Q- this sentence is repeating a lot - 
+Where it is required to distinguish an I/O exception from the case that 0L is returned, or where several attributes of the same file are required at the same time, then the Files.readAttributes method may be used.
+
+Maybe need to learn it. 
+
