@@ -5,7 +5,7 @@ public class PointerDemos {
 	public static void main(String[] args) {
 		System.out.println("Array pointers: ");
 		
-		int[] arr1 = {1,2,3};
+		int[] arr1 = {1,2,3};//
 		int x = arr1[0];
 		
 		int[] arr2 = arr1;
@@ -27,13 +27,13 @@ public class PointerDemos {
 		x=10;
 		System.out.println("x = " + x);
 		
-		System.out.println("y = " + y);
+		System.out.println("y = " + y); 
 		
 		//data primitive types aren't pointer. 
 		
 		//but the array elements can be primitives, so they will be pointers. 
 		
-		int[] arr3 = new int[3];//not pointer - data primitive 
+		int[] arr3 = new int[3];//not pointer - data primitive //
 		arr3 [0] = arr1[0];
 		
 		arr1[0] = 100;

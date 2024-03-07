@@ -10,6 +10,7 @@ import java.awt.event.WindowListener;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -51,6 +52,7 @@ class SomeBasicExample {
 	int count = 1;
 
 	boolean checkbox1Bool = true;
+	String dropDownOptions[] = { "C", "C++", "C#", "Java", "PHP" };
 
 	public void ShowVeryBasic() {
 
@@ -137,8 +139,11 @@ class SomeBasicExample {
 		container.setVisible(true);
 		container.addWindowListener(new WindowDefaultListenter());
 		JCheckBox checkbox1 = new JCheckBox("C++", checkbox1Bool);
-		checkbox1.setBounds(10, 10, 50, 50);
-		container.add(checkbox1);
+		checkbox1.setBounds(10, 10, 50, 50);//bound is relative to the parent-container.
+		//container.add(checkbox1);
+		
+		//adding checkbox
+		//https://www.javatpoint.com/java-jcheckbox
 		checkbox1.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				System.out.println("C++ Checkbox: " + (e.getStateChange() == 1 ? "checked" : "unchecked"));
@@ -148,7 +153,33 @@ class SomeBasicExample {
 			
 			}
 		});
+		
+		//adding dropdown. 
+//		https://www.javatpoint.com/java-jcombobox
+		JComboBox<String> dropDown=new JComboBox<String>(dropDownOptions);    
+	 	dropDown.setBounds(10, 20, 50, 50);    
+	 	dropDown.setBounds(50, 100,90,20);    
 
+	 	//dropDown.setSize(350,350);    
+
+	 	dropDown.setBackground(Color.ORANGE);
+	 	dropDown.setVisible(true);
+	    container.add(dropDown);
+//		    f.add(label); f.add(b);    
+//		    f.setLayout(null);    
+		  					
+	    dropDown.addActionListener(new ActionListener() {  
+		        public void actionPerformed(ActionEvent e) {       
+		String data = "option selected: "   
+		   + dropDown.getItemAt(dropDown.getSelectedIndex()) 
+				   +" |at data - " + dropDownOptions[dropDown.getSelectedIndex()];  
+		
+		System.out.println(data);
+		
+		//label.setText(data);  
+		}  
+
+	});
 	}
 }
 
@@ -195,7 +226,7 @@ class WindowDefaultListenter implements WindowListener {
 
 	@Override
 	public void windowDeactivated(WindowEvent e) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub//
 		System.out.println("Closing 3...");
 		System.exit(0);// closing process on close
 
