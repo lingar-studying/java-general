@@ -1,10 +1,14 @@
 package swingAndGui;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 //TODO: 
 /**
@@ -54,19 +58,69 @@ class SomeBasicExample{
 		JButton b=new JButton("click");//creating instance of JButton  
 		b.setBounds(10,100,100, 40);//x axis, y axis, width, height  
 		          
-		f.add(b);//adding button in JFrame  
+		f.add(b);//adding button in JFrame 
+		
+		JPanel panel = new  JPanel();
+		panel.setBounds(200, 400, 50, 60);
+		panel.setBackground(Color.WHITE);
+		f.add(panel);
 		          
 		f.setSize(400,500);//400 width and 500 height  
 		f.setLayout(null);//using no layout managers  
 		f.setVisible(true);//making the frame visible  
 		
-		
+		//adding window listeners
+		f.addWindowListener(new WindowListener() {
+			
+			@Override
+			public void windowOpened(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowIconified(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowDeiconified(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowDeactivated(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowClosing(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowClosed(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowActivated(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		b.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
 				System.out.println("Button clicked... " + count++);
+				panel.setVisible(!panel.isVisible());
 			}
 		});
 		}  
