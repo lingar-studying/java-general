@@ -12,6 +12,14 @@ package swingAndGui;
 public class DemoGui {
 	public static void main(String[] args) {
 		
+		System.out.println("hey ... ");
+		
+		System.out.println("Pass over this: \n"
+				+ "https://www.javatpoint.com/java-swing");
+		
+	
+				
+				
 	}
 
 }
