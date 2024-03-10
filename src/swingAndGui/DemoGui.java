@@ -16,6 +16,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 //TODO: 
@@ -222,7 +223,7 @@ class SomeBasicExample {
 		 System.out.println("Here ? " + lastY);
 	     area.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
-	     area.setBounds(lastX, lastY+=80, 100,80);  
+	     area.setBounds(lastX-50, lastY+=80, 100,80);  
 	    
 	     //area.setBackground(Color.GREEN);
 		container.add(area);
@@ -234,7 +235,13 @@ class SomeBasicExample {
 		//text area
 		//for validation : https://docs.oracle.com/javase/1.5.0/docs/api/javax/swing/InputVerifier.html
 		
-		
+	    JTextField textField1,textField2;  
+	    textField1=new JTextField("Welcome to Javatpoint.");  
+	    textField1.setBounds(lastX-250, lastY+=220, 200,30);  
+	    textField1.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+
+        container.add(textField1);  
 		
 		
 		
