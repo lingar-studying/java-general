@@ -13,6 +13,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 //TODO: 
 /**
@@ -136,14 +137,19 @@ class SomeBasicExample {
 
 		// creating the container JFrame
 		JFrame container = new JFrame();
-		container.setBounds(20, 40, 400, 1000);// x axis, y axis, width, height
+		container.setBounds(20, 40, 300, 200);// x axis, y axis, width, height
 		container.setVisible(true);
 		container.addWindowListener(new WindowDefaultListenter());
 		JCheckBox checkbox1 = new JCheckBox("C++", checkbox1Bool);
-		checkbox1.setBounds(10, 10, 50, 50);//bound is relative to the parent-container.
-		//container.add(checkbox1);
-		
-		//adding checkbox
+		//checkbox1.setBounds(500, 100, 500, 500);//bound is relative to the parent-container.
+        checkbox1.setBounds(190,100, 50,50);  
+
+        //changing rtl 
+		// jCheckBox.setHorizontalTextPosition(SwingConstants.LEFT);
+		// pay attention - it's changing after the adding too... but it's resetting it
+		checkbox1.setHorizontalTextPosition(SwingConstants.LEFT);
+        
+		//adding listners... 
 		//https://www.javatpoint.com/java-jcheckbox
 		checkbox1.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
@@ -155,6 +161,15 @@ class SomeBasicExample {
 			}
 		});
 		
+		
+		//checkbox1
+		container.add(checkbox1);
+		
+		
+		
+		
+		//end of checkbox
+		
 		//adding dropdown. 
 //		https://www.javatpoint.com/java-jcombobox
 		JComboBox<String> dropDown=new JComboBox<String>(dropDownOptions);    
@@ -165,7 +180,7 @@ class SomeBasicExample {
 
 	 	dropDown.setBackground(Color.ORANGE);
 	 	dropDown.setVisible(true);
-	    container.add(dropDown);
+	    //container.add(dropDown);
 //		    f.add(label); f.add(b);    
 //		    f.setLayout(null);    
 		  					
