@@ -41,7 +41,8 @@ public class DemoGui {
 
 		SomeBasicExample someBasicExample = new SomeBasicExample();
 //		SomeBasicExample.ShowVeryBasic();
-		// someBasicExample.ShowVeryBasic();
+		//
+		//someBasicExample.ShowVeryBasic();
 		someBasicExample.ShowBasicFormComponents();
 
 	}
