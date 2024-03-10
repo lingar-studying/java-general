@@ -154,13 +154,14 @@ class SomeBasicExample {
 		int lastX = 220;
 		// creating the container JFrame
 		JFrame container = new JFrame();
-		container.setBounds(500, 40, 1000, 700);// x axis, y axis, width, height
+		container.setBounds(500, 40, 500, 700);// x axis, y axis, width, height
 		container.setVisible(true);
 //		container.setHorizontalTextPosition(SwingConstants.LEFT);
 		JCheckBox checkbox1 = new JCheckBox("C++", checkbox1Bool);
 		// checkbox1.setBounds(500, 100, 500, 500);//bound is relative to the
 		// parent-container.
 		checkbox1.setBounds(lastX, (10), 50, 50);
+//		checkbox1.setBackground(Color.BLACK);
 
 		// changing rtl
 		// jCheckBox.setHorizontalTextPosition(SwingConstants.LEFT);
@@ -187,7 +188,7 @@ class SomeBasicExample {
 		// adding dropdown.
 //		https://www.javatpoint.com/java-jcombobox
 		JComboBox<String> dropDown = new JComboBox<String>(dropDownOptions);
-		 dropDown.setBounds(lastX, 60,50,20);
+		 dropDown.setBounds(lastX, lastYPos+=70,50,20);
 			
 
 		container.add(dropDown);
