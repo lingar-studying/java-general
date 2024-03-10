@@ -1,6 +1,7 @@
 package swingAndGui;
 
 import java.awt.Color;
+import java.awt.ComponentOrientation;
 import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,6 +15,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
 //TODO: 
@@ -150,12 +152,12 @@ class SomeBasicExample {
 
 	// Do some window that you can insert check boxes, radios, free input.
 	public void ShowBasicFormComponents() {
-		int lastYPos = 10;
-		int lastX = 220;
+		int lastY = 10;
+		int lastX = 500;
 		// creating the container JFrame
 		JFrame container = new JFrame();
 		container.setBounds(500, 40, 500, 700);// x axis, y axis, width, height
-		container.setVisible(true);
+		//container.setVisible(true); //make it visible only after you are adding all children
 //		container.setHorizontalTextPosition(SwingConstants.LEFT);
 		JCheckBox checkbox1 = new JCheckBox("C++", checkbox1Bool);
 		// checkbox1.setBounds(500, 100, 500, 500);//bound is relative to the
@@ -188,7 +190,7 @@ class SomeBasicExample {
 		// adding dropdown.
 //		https://www.javatpoint.com/java-jcombobox
 		JComboBox<String> dropDown = new JComboBox<String>(dropDownOptions);
-		 dropDown.setBounds(lastX, lastYPos+=70,50,20);
+		 dropDown.setBounds(lastX, lastY+=70,50,20);
 			
 
 		container.add(dropDown);
@@ -216,8 +218,34 @@ class SomeBasicExample {
 
 		});
 		
-		container.addWindowListener(new WindowDefaultListenter());
+		 JTextArea area=new JTextArea("טקסט לחיפוש");  
+		 System.out.println("Here ? " + lastY);
+	     area.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
+	     area.setBounds(lastX, lastY+=80, 100,80);  
+	    
+	     //area.setBackground(Color.GREEN);
+		container.add(area);
+		//area.setVisible(true);
+		
+		//container.add(area2);
+
+		
+		//text area
+		//for validation : https://docs.oracle.com/javase/1.5.0/docs/api/javax/swing/InputVerifier.html
+		
+		
+		
+		
+		
+		
+		//after adding all components
+//		https://stackoverflow.com/questions/47895490/why-is-my-textarea-not-visible
+		container.addWindowListener(new WindowDefaultListenter());
+		//container.pack();
+		container.setSize(600,700);  
+		container.setLayout(null);  
+		container.setVisible(true);
 	}}
 
 	class WindowDefaultListenter implements WindowListener {
