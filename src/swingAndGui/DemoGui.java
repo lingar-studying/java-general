@@ -1,6 +1,7 @@
 package swingAndGui;
 
 import java.awt.Color;
+import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -43,8 +44,9 @@ public class DemoGui {
 		SomeBasicExample someBasicExample = new SomeBasicExample();
 //		SomeBasicExample.ShowVeryBasic();
 		//
-		//someBasicExample.ShowVeryBasic();
+		// someBasicExample.ShowVeryBasic();
 		someBasicExample.ShowBasicFormComponents();
+		//someBasicExample.draft();
 
 	}
 
@@ -131,121 +133,138 @@ class SomeBasicExample {
 			}
 		});
 	}
+	
+	public void draft() {
+		
+		
+			JFrame f; 
+		    f=new JFrame("ComboBox Example");    
+		    String country[]={"India","Aus","U.S.A","England","Newzealand"};        
+		    JComboBox<String> cb=new JComboBox<String>(country);    
+		    cb.setBounds(50, 50,90,20);    
+		    f.add(cb);        
+		    f.setLayout(null);    
+		    f.setSize(400,500);    
+		    f.setVisible(true);         
+	}
 
 	// Do some window that you can insert check boxes, radios, free input.
 	public void ShowBasicFormComponents() {
-
+		int lastYPos = 10;
+		int lastX = 220;
 		// creating the container JFrame
 		JFrame container = new JFrame();
-		container.setBounds(20, 40, 300, 200);// x axis, y axis, width, height
+		container.setBounds(20, 40, 300, 800);// x axis, y axis, width, height
 		container.setVisible(true);
-		container.addWindowListener(new WindowDefaultListenter());
 		JCheckBox checkbox1 = new JCheckBox("C++", checkbox1Bool);
-		//checkbox1.setBounds(500, 100, 500, 500);//bound is relative to the parent-container.
-        checkbox1.setBounds(190,100, 50,50);  
+		// checkbox1.setBounds(500, 100, 500, 500);//bound is relative to the
+		// parent-container.
+		checkbox1.setBounds(lastX, (lastYPos += 10), 50, 50);
 
-        //changing rtl 
+		// changing rtl
 		// jCheckBox.setHorizontalTextPosition(SwingConstants.LEFT);
 		// pay attention - it's changing after the adding too... but it's resetting it
 		checkbox1.setHorizontalTextPosition(SwingConstants.LEFT);
-        
-		//adding listners... 
-		//https://www.javatpoint.com/java-jcheckbox
+
+		// adding listners...
+		// https://www.javatpoint.com/java-jcheckbox
 		checkbox1.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				System.out.println("C++ Checkbox: " + (e.getStateChange() == 1 ? "checked" : "unchecked"));
-				
+
 				checkbox1Bool = e.getStateChange() == 1;
 				System.out.println("bool = " + checkbox1Bool + " e = " + e.getStateChange());
-			
+
 			}
 		});
-		
-		
-		//checkbox1
+
+		// checkbox1
 		container.add(checkbox1);
-		
-		
-		
-		
-		//end of checkbox
-		
-		//adding dropdown. 
+
+		// end of checkbox
+
+		// adding dropdown.
 //		https://www.javatpoint.com/java-jcombobox
-		JComboBox<String> dropDown=new JComboBox<String>(dropDownOptions);    
-	 	dropDown.setBounds(10, 20, 50, 50);    
-	 	dropDown.setBounds(50, 100,90,20);    
+		JComboBox<String> dropDown = new JComboBox<String>(dropDownOptions);
+		 dropDown.setBounds(50, 50,90,20);
+			
 
-	 	//dropDown.setSize(350,350);    
+		container.add(dropDown);
+		 container.setLayout(null);    
+		 container.setSize(400,500);    
+		 container.setVisible(true);   
+		//dropDown.setBounds(20, (lastYPos += 10), 20, 20);
 
-	 	dropDown.setBackground(Color.ORANGE);
-	 	dropDown.setVisible(true);
-	    //container.add(dropDown);
+		// dropDown.setSize(350,350);
+
+		//dropDown.setBackground(Color.ORANGE);
+		//dropDown.setVisible(true);
 //		    f.add(label); f.add(b);    
-//		    f.setLayout(null);    
-		  					
-	    dropDown.addActionListener(new ActionListener() {  
-		        public void actionPerformed(ActionEvent e) {       
-		String data = "option selected: "   
-		   + dropDown.getItemAt(dropDown.getSelectedIndex()) 
-				   +" |at data - " + dropDownOptions[dropDown.getSelectedIndex()];  
+		//dropDown.setLayout(null);    
+
+		dropDown.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String data = "option selected: " + dropDown.getItemAt(dropDown.getSelectedIndex()) + " |at data - "
+						+ dropDownOptions[dropDown.getSelectedIndex()];
+
+				System.out.println("here ?" + data);
+
+				// label.setText(data);
+			}
+
+		});
 		
-		System.out.println(data);
-		
-		//label.setText(data);  
-		}  
+		container.addWindowListener(new WindowDefaultListenter());
 
-	});
-	}
-}
+	}}
 
-class WindowDefaultListenter implements WindowListener {
+	class WindowDefaultListenter implements WindowListener {
 
-	@Override
-	public void windowOpened(WindowEvent e) {
-		// TODO Auto-generated method stub
+		@Override
+		public void windowOpened(WindowEvent e) {
+			// TODO Auto-generated method stub
 
-	}
+		}
 
-	// on closing window...
-	@Override
-	public void windowClosing(WindowEvent e) {
-		// TODO Auto-generated method stub
-		System.out.println("Closing 2...");
-		System.exit(0);// closing process on close
-	}
+		// on closing window...
+		@Override
+		public void windowClosing(WindowEvent e) {
+			// TODO Auto-generated method stub
+			System.out.println("Closing 2...");
+			System.exit(0);// closing process on close
+		}
 
-	@Override
-	public void windowClosed(WindowEvent e) {
+		@Override
+		public void windowClosed(WindowEvent e) {
 //		System.out.println("Closing...");
 //		System.exit(0);//closing process on close
 
+		}
+
+		@Override
+		public void windowIconified(WindowEvent e) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void windowDeiconified(WindowEvent e) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void windowActivated(WindowEvent e) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void windowDeactivated(WindowEvent e) {
+			// TODO Auto-generated method stub//
+			System.out.println("Closing 3...");
+			System.exit(0);// closing process on close
+
+		}
+
 	}
-
-	@Override
-	public void windowIconified(WindowEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void windowDeiconified(WindowEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void windowActivated(WindowEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void windowDeactivated(WindowEvent e) {
-		// TODO Auto-generated method stub//
-		System.out.println("Closing 3...");
-		System.exit(0);// closing process on close
-
-	}
-
-}
