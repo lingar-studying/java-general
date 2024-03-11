@@ -2,7 +2,6 @@ package swingAndGui;
 
 import java.awt.Color;
 import java.awt.ComponentOrientation;
-import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -13,11 +12,13 @@ import java.awt.event.WindowListener;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 //TODO: 
 /**
@@ -149,6 +150,16 @@ class SomeBasicExample {
 		    f.setLayout(null);    
 		    f.setSize(400,500);    
 		    f.setVisible(true);         
+		
+		JFileChooser chooser = new JFileChooser();
+	    FileNameExtensionFilter filter = new FileNameExtensionFilter(
+	        "JPG & GIF Images", "jpg", "gif");
+	    chooser.setFileFilter(filter);
+	    int returnVal = chooser.showOpenDialog(f);
+	    if(returnVal == JFileChooser.APPROVE_OPTION) {
+	       System.out.println("You chose to open this file: " +
+	            chooser.getSelectedFile().getName());
+	    }
 	}
 
 	// Do some window that you can insert check boxes, radios, free input.
@@ -195,9 +206,12 @@ class SomeBasicExample {
 			
 
 		container.add(dropDown);
-		 container.setLayout(null);    
-		 
-		 container.setVisible(true);   
+		
+//		
+//		
+//		 container.setLayout(null);    
+//		 
+//		 container.setVisible(true);   
 		//dropDown.setBounds(20, (lastYPos += 10), 20, 20);
 
 		// dropDown.setSize(350,350);
@@ -243,10 +257,14 @@ class SomeBasicExample {
 
         container.add(textField1);  
 		
+        
+        //file chooser
+//        https://docs.oracle.com/javase/8/docs/api/javax/swing/JFileChooser.html
+        
 		
 		
 		
-		//after adding all components
+		//after adding all components*****************************************HERE******************************** 
 //		https://stackoverflow.com/questions/47895490/why-is-my-textarea-not-visible
 		container.addWindowListener(new WindowDefaultListenter());
 		//container.pack();
