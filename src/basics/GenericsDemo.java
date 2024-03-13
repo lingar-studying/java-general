@@ -1,5 +1,6 @@
 package basics;
 
+import java.awt.Canvas;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -26,8 +27,42 @@ public class GenericsDemo {
 		 
 		 listArr.stream().forEachOrdered(i->System.out.println(i));
 		 System.out.println(listArr.get(1).get(1));
+		 
+		 List<List<? extends Shape>> shapesLists = new ArrayList<List<? extends Shape>>();
+		 
+		 List<Circle> listCircle = null; // = Arrays.asList(null);
+		 List<Rectangle> rectangles ;
+		 
+		 shapesLists.add(listCircle);
+		 
+		 Rectangle r = new Rectangle();
+		 
+		 List<? extends Shape> shapes2 = new ArrayList();
+//		 shapes2.add(r);
+		 List<?> shapes3 = new ArrayList();
+//		 shapes3.add(r);//compile error
+
+		 
 
 	}
+}
+
+ abstract class Shape {
+    public abstract void draw(Canvas c);
+}
+
+ class Circle extends Shape {
+    private int x, y, radius;
+    public void draw(Canvas c) {
+//        ...
+    }
+}
+
+ class Rectangle extends Shape {
+    private int x, y, width, height;
+    public void draw(Canvas c) {
+//        ...
+    }
 }
 /*
 About generics an subtyping
